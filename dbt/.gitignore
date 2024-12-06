@@ -1,0 +1,12 @@
+
+target/
+dbt_packages/
+logs/
+profiles.yml
+credentials/
+.user.yml
+.DS_Store
+.vscode/
+package-lock.yml
+models/
+integration_tests/
