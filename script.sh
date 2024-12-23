@@ -3,6 +3,8 @@ set -e
 set -o pipefail
 set -u
 
+export DBT_PROFILES_DIR=~/.dbt
+echo "DBT_PROFILES_DIR set to $DBT_PROFILES_DIR"
 
 # Create the profiles.yml dynamically
 mkdir -p ~/.dbt
@@ -21,8 +23,6 @@ EOF
 
 echo "profiles.yml created successfully"
 
-export DBT_PROFILES_DIR=~/.dbt
-echo "DBT_PROFILES_DIR set to $DBT_PROFILES_DIR"
 
 # read cloud run jobs arguments
 dbt_build=$1
@@ -32,6 +32,10 @@ if [ $# -eq 0 ]; then
     echo "No arguments provided"
     exit 1
 fi
+
+
+echo "Installing dbt dependencies..."
+dbt deps || { echo 'Failed to install dbt dependencies'; exit 1; }
 
 # execute dbt build command (first argument)
 $dbt_build
