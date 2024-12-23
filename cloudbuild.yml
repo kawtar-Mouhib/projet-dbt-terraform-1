@@ -22,13 +22,18 @@ steps:
       '--args', 'dbt run , dbt docs generate',
       '--set-env-vars', 'DBT_DOCS_BUCKET=${_DBT_DOCS_BUCKET}'
     ]
-
+  # Step 4: Execute the Cloud Run Job
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args: [
+      'run', 'jobs', 'execute', '${_JOB_NAME}', '--region', 'europe-west1'
+    ]
 # Uncomment this if needed
 # images:
 #   - 'gcr.io/terraform-project-443816/dbt-cloud-run:latest'
 #images:
   #- 'gcr.io/terraform-project-443816/dbt-cloud-run:latest'
-
+#images:
 substitutions:
     _IMAGE_NAME: 'dbt-cloud-run-test'
     _JOB_NAME: 'dbt-cloud-run-job'
