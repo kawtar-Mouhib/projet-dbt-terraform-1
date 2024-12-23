@@ -3,6 +3,24 @@ set -e
 set -o pipefail
 set -u
 
+
+# Create the profiles.yml dynamically
+mkdir -p ~/.dbt
+
+cat <<EOF > ~/.dbt/profiles.yml
+my-bigquery-db:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: terraform-project-443816
+      dataset: run-test
+      threads: 4
+EOF
+
+echo "profiles.yml created successfully"
+
 # read cloud run jobs arguments
 dbt_build=$1
 dbt_docs=$2
