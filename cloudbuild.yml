@@ -3,7 +3,7 @@ options:
   logging: GCS_ONLY
 
 steps:
-  - name: 'gcr.io/cloud-builders/bash'
+  - name: 'bash'
     script: |
       mkdir -p /workspace/.dbt
       echo "my-bigquery-db:" > /workspace/.dbt/profiles.yml
