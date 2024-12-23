@@ -27,5 +27,6 @@ if [ $? -eq 0 ]
     echo "dbt failed"
     echo "hello "
     echo "test"
+    echo "test 2"
     exit 1
 fi
