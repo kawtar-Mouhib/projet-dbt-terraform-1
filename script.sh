@@ -25,5 +25,6 @@ if [ $? -eq 0 ]
 
   else
     echo "dbt failed"
+    echo "hello "
     exit 1
 fi
