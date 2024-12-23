@@ -21,6 +21,9 @@ EOF
 
 echo "profiles.yml created successfully"
 
+export DBT_PROFILES_DIR=~/.dbt
+echo "DBT_PROFILES_DIR set to $DBT_PROFILES_DIR"
+
 # read cloud run jobs arguments
 dbt_build=$1
 dbt_docs=$2
