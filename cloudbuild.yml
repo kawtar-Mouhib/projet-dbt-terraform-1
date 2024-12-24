@@ -1,4 +1,4 @@
-logsBucket: 'gs://terraform-project-443816-cloudbuild-logs'
+logsBucket: 'gs://${_LOGS_BUCKET}'
 options:
   logging: GCS_ONLY
 
@@ -39,4 +39,6 @@ substitutions:
     _IMAGE_NAME: 'dbt-cloud-run-test'
     _JOB_NAME: 'dbt-cloud-run-job'
     _DBT_DOCS_BUCKET: 'terraform-project-443816_cloudbuild'
-
+    _LOGS_BUCKET: 'terraform-project-443816-cloudbuild-logs'
+    _DBT_PROJECT_ID: 'terraform-project-443816'
+    _DBT_DATASET: 'run-test'
