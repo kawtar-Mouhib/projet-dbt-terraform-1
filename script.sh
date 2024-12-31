@@ -45,7 +45,7 @@ if [ $? -eq 0 ]
     echo "dbt successfully run"
     # execute dbt docs command (second argument)
     $dbt_docs
-    gsutil -m cp target/* gs://$DBT_DOCS_BUCKET/
+    gsutil -m cp -r target/* gs://$DBT_DOCS_BUCKET/
     echo "Target folder copied to gcs"
 
   else
