@@ -10,14 +10,14 @@ printenv
 mkdir -p ~/.dbt
 
 cat <<EOF > ~/.dbt/profiles.yml
-my-bigquery-db:
+default:
   target: dev
   outputs:
     dev:
       type: bigquery
       method: oauth
       project: $DBT_PROJECT_ID
-      dataset: run-test
+      dataset: $DBT_DATASET
       threads: 4
 EOF
 
