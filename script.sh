@@ -5,7 +5,7 @@ set -u
 
 export DBT_PROFILES_DIR=~/.dbt
 echo "DBT_PROFILES_DIR set to $DBT_PROFILES_DIR"
-
+printenv
 # Create the profiles.yml dynamically
 mkdir -p ~/.dbt
 
@@ -16,7 +16,7 @@ my-bigquery-db:
     dev:
       type: bigquery
       method: oauth
-      project: ${_DBT_PROJECT_ID}
+      project: ${_DBT_PROJECT_ID} 
       dataset: ${_DBT_DATASET}
       threads: 4
 EOF
