@@ -16,8 +16,8 @@ my-bigquery-db:
     dev:
       type: bigquery
       method: oauth
-      project: terraform-project-443816
-      dataset: run-test
+      project: ${DBT_PROJECT_ID}
+      dataset: ${DBT_DATASET}
       threads: 4
 EOF
 
@@ -53,5 +53,6 @@ if [ $? -eq 0 ]
     echo "hello "
     echo "test"
     echo "test 2"
+    echo "test 3"
     exit 1
 fi
