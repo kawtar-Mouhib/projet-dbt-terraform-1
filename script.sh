@@ -16,8 +16,8 @@ my-bigquery-db:
     dev:
       type: bigquery
       method: oauth
-      project: $DBT_PROJECT_ID 
-      dataset: $DBT_DATASET
+      project: terraform-project-443816
+      dataset: run-test
       threads: 4
 EOF
 
