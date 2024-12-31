@@ -16,8 +16,8 @@ my-bigquery-db:
     dev:
       type: bigquery
       method: oauth
-      project: ${_DBT_PROJECT_ID} 
-      dataset: ${_DBT_DATASET}
+      project: $DBT_PROJECT_ID 
+      dataset: $DBT_DATASET
       threads: 4
 EOF
 
